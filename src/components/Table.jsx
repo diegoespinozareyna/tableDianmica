@@ -1,13 +1,14 @@
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
 import React from 'react'
+import '../index.css'
 
 function Table({ datos, selectedProducts, setSelectedProducts, paginatorLeft }) {
     return (
         <div style={{ marginTop: "2rem" }}>
             <DataTable
                 // header={header}
-                headerStyle={{ backgroundColor: '#000' }}
+                // headerStyle={{ backgroundColor: '#000' }}
                 value={datos}
                 size={"small"}
                 selectionMode={"checkbox"}
