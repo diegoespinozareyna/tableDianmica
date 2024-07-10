@@ -3,6 +3,8 @@ import axios from "axios";
 import Table from "./components/Table";
 import Buttons from "./components/Buttons";
 import Search from "./components/Search";
+import './index.css'
+import './flags.css'
 
 export default function TemplateDemo() {
 
@@ -67,10 +69,14 @@ export default function TemplateDemo() {
             ));
     }, [products, value, selectedProducts])
 
+    useEffect(() => {
+        console.log(selectedProducts)
+    }, [selectedProducts])
+
     const handleRemove = () => {
-        for (let index = 0; index < selectedProducts.length; index++) {
+        for (let index = 0; index < selectedProducts?.length; index++) {
             const element = selectedProducts[index];
-            // console.log(element?.id)
+            console.log(element?.id)
             setProducts(x => x.reduce((arr, item, ix) => {
                 if (item.id !== element?.id) {
                     arr.push(item);
@@ -78,6 +84,28 @@ export default function TemplateDemo() {
                 return arr
             }, []))
         }
+    }
+
+    const handleEdit = () => {
+        for (let index = 0; index < selectedProducts.length; index++) {
+            const element = selectedProducts[index];
+            console.log(element?.id)
+            setProducts(x => x.reduce((arr, item, ix) => {
+                if (item.id !== element?.id) {
+                    arr.push(item);
+                }
+                return arr
+            }, []))
+        }
+
+        setProducts(x => x.reduce((arr, item, ix) => {
+            arr.push({
+                ...item,
+                
+            })
+            return arr
+        }, []))
+
     }
 
     const paginatorLeft = (
@@ -117,7 +145,7 @@ export default function TemplateDemo() {
                     <div style={{ fontSize: "2.5rem", fontWeight: "700" }} className="text-black" >Mi tabla</div>
                 </title>
 
-                <Buttons {...{ handleRemove }} />
+                <Buttons {...{ handleRemove, handleEdit }} />
 
                 <Search {...{ value, setValue }} />
 
