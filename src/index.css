@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 13px;
+  border-radius: 10px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+body {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: normal;
+  background-color: #f5f6f6;
+  color: var(--text-color);
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-radius: 10px !important;
+}
+
+.card {
+  font-family: "Montserrat", sans-serif !important;
+  background: var(--surface-card);
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
